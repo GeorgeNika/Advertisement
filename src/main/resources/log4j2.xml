@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appenders>
+        <File name="MissingLogs" fileName="${sys:MessageBoardLogPath}missing_logs.log">
+            <PatternLayout pattern="[%-5level] %d{DEFAULT} [%t] [%logger{36}] %M - %msg%n"/>
+        </File>
+        <RollingRandomAccessFile name="UserAll" fileName="${sys:MessageBoardLogPath}user_all.log"
+                                 filePattern="${sys:MessageBoardArchiveLogPath}user_all-%d{yyyy_MM_dd__HH_mm_ss}.log">
+            <PatternLayout pattern="[%-5level] %d{DEFAULT} [%t] %M - %msg%n"/>
+            <Policies>
+                <OnStartupTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="1 MB"></SizeBasedTriggeringPolicy>
+            </Policies>
+        </RollingRandomAccessFile>
+        <RollingRandomAccessFile name="UserError" fileName="${sys:MessageBoardLogPath}user_error.log"
+                                 filePattern="${sys:MessageBoardArchiveLogPath}user_error-%d{yyyy_MM_dd__HH_mm_ss}.log">
+            <PatternLayout pattern="[%-5level] %d{DEFAULT} [%t] [%logger{36}] %M - %msg%n"/>
+            <Policies>
+                <OnStartupTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="1 MB"></SizeBasedTriggeringPolicy>
+            </Policies>
+        </RollingRandomAccessFile>
+        <RollingRandomAccessFile name="AppError" fileName="${sys:MessageBoardLogPath}app_error.log"
+                                 filePattern="${sys:MessageBoardArchiveLogPath}error-%d{yyyy_MM_dd__HH_mm_ss}.log">
+            <PatternLayout pattern="[%-5level] %d{DEFAULT} [%t] [%logger{36}] %M - %msg%n"/>
+            <Policies>
+                <OnStartupTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="1 MB"></SizeBasedTriggeringPolicy>
+            </Policies>
+        </RollingRandomAccessFile>
+    </appenders>
+    <loggers>
+        <Logger name="Controller" level="all" additivity="false">
+            <AppenderRef ref="UserAll"/>
+            <AppenderRef ref="UserError" level="error"/>
+        </Logger>
+        <Logger name="Dao" level="error" additivity="false">
+            <AppenderRef ref="AppError"/>
+        </Logger>
+        <Logger name="Model" level="error" additivity="false">
+            <AppenderRef ref="AppError"/>
+        </Logger>
+        <Logger name="Service" level="error" additivity="false">
+            <AppenderRef ref="AppError"/>
+        </Logger>
+        <Logger name="Util" level="error" additivity="false">
+            <AppenderRef ref="AppError"/>
+        </Logger>
+
+        <root level="all">
+            <AppenderRef ref="MissingLogs"/>
+        </root>
+    </loggers>
+
+</configuration>

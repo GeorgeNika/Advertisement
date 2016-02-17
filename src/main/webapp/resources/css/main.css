@@ -1,0 +1,112 @@
+.side-col{
+	background-size: contain;
+	background: url(../images/side_background.png) repeat-y;
+}
+.whole-height {
+	height: 90vh;
+	overflow: auto;
+	text-align: center;
+}
+.board{
+	opacity: 0.7;
+	padding-left: 25px;
+	overflow: auto;
+	margin: 5px -10px;
+	border: ridge ;
+}
+.board:hover {
+	opacity: 1;
+}
+.board_header{
+	margin-left: 5px;
+	margin-right: 10px;
+	border-bottom: double;
+}
+.board_info{
+	text-align: end;
+	margin-right: 10px;
+}
+.board_message{
+	margin-left: -5px;
+	text-align: start;
+	margin-right: 10px;
+}
+.board_sky {
+	background: #5EFAF7 url(../images/pushpin_blue.png) no-repeat;
+	border-color:  #47EBE0;
+}
+.board_green {
+	background: #8EFFC1 url(../images/pushpin_blue.png) no-repeat;
+	border-color:  #4EEC91;
+}
+.board_red {
+	background: #FFDCB5 url(../images/pushpin_green.png) no-repeat;
+	border-color:  #FFB28B;
+}
+.board_blue {
+	background: #39D5FF url(../images/pushpin_green.png) no-repeat;
+	border-color:  #19B5FE;
+}
+.board_orange {
+	background: #FDE3A7 url(../images/pushpin_red.png) no-repeat;
+	border-color:  #F9BF3B;
+}
+.board_grey {
+	background: #C5D3E2 url(../images/pushpin_green.png) no-repeat;
+	border-color:  #ACBAC9;
+}
+
+.modal_board{
+	background-image: url(../images/main_background.jpg);
+}
+
+body{
+	background-image: url(../images/main_background.jpg);
+	background-size: cover;
+
+	height: 100%;
+	margin: 0;
+	padding-top: 45px;
+}
+
+.round_button {
+	max-width: 98%;
+	max-height: 98%;
+	opacity: 0.7;
+}
+
+:hover.round_button {
+	opacity: 1;
+}
+
+
+
+*::-webkit-input-placeholder {
+	color: #666;
+	opacity: 1;
+}
+*:-moz-placeholder {
+	color: #666;
+	opacity: 1;
+}
+*::-moz-placeholder {
+	color: #666;
+	opacity: 1;
+}
+*:-ms-input-placeholder {
+	color: #666;
+	opacity: 1;
+}
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid {
+	
+}
+body input:required:valid,
+body textarea:required:valid {
+	
+}
+body {
+	font-family: "RobotoRegular", sans-serif;
+	font-size: 16px;
+}

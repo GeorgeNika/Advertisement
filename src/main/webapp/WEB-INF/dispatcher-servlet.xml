@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd
+            http://www.springframework.org/schema/mvc
+            http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+
+    <bean id="config" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:/config.properties</value>
+            </list>
+        </property>
+    </bean>
+    <context:property-placeholder location="classpath:config.properties"/>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="staticMethod" value="ua.george_nika.advertisement.util.AppConst.setPathApplicationLog"/>
+        <property name="arguments">
+            <value>${path.application_log}</value>
+        </property>
+    </bean>
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="staticMethod" value="ua.george_nika.advertisement.util.AppConst.setPathArchiveApplicationLog"/>
+        <property name="arguments">
+            <value>${path.application_archive_log}</value>
+        </property>
+    </bean>
+
+    <context:component-scan base-package="ua.george_nika.advertisement.controller"/>
+    <context:component-scan base-package="ua.george_nika.advertisement.model"/>
+    <context:component-scan base-package="ua.george_nika.advertisement.dao"/>
+    <context:component-scan base-package="ua.george_nika.advertisement.service"/>
+
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <mvc:resources mapping="/favicon.ico" location="/favicon.ico"/>
+
+    <mvc:annotation-driven/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/JSP/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <bean class="ua.george_nika.advertisement.util.AppExceptionResolver"/>
+
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"></bean>
+
+    <import resource="jpa-context.xml"/>
+
+</beans>
