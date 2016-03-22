@@ -137,7 +137,7 @@ public class MainController {
 
     @RequestMapping("/ajax/saveMessage")
     @ResponseBody
-    public String saveMessageGoodEdit(HttpServletRequest request, HttpSession session, Model model,
+    public String saveMessage(HttpServletRequest request, HttpSession session, Model model,
                               @RequestParam(value = "idMessage") int idMessage,
                               @RequestParam(value = "category") int category,
                               @RequestParam(value = "title") String title,
@@ -149,7 +149,7 @@ public class MainController {
 
     @RequestMapping("/ajax/deleteMessage")
     @ResponseBody
-    public String deleteMessageGoodEdit(HttpServletRequest request, HttpSession session, Model model,
+    public String deleteMessage(HttpServletRequest request, HttpSession session, Model model,
                                 @RequestParam(value = "idMessage") int idMessage) {
 
         accountService.checkPermission(session);
