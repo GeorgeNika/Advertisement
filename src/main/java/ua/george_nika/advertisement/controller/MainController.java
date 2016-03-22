@@ -149,7 +149,7 @@ public class MainController {
 
     @RequestMapping("/ajax/deleteMessage")
     @ResponseBody
-    public String deleteMessage(HttpServletRequest request, HttpSession session, Model model,
+    public String deleteMessageGoodEdit(HttpServletRequest request, HttpSession session, Model model,
                                 @RequestParam(value = "idMessage") int idMessage) {
 
         accountService.checkPermission(session);
