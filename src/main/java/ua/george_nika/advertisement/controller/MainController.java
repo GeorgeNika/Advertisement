@@ -137,7 +137,7 @@ public class MainController {
 
     @RequestMapping("/ajax/saveMessage")
     @ResponseBody
-    public String saveMessage(HttpServletRequest request, HttpSession session, Model model,
+    public String saveMessageNew(HttpServletRequest request, HttpSession session, Model model,
                               @RequestParam(value = "idMessage") int idMessage,
                               @RequestParam(value = "category") int category,
                               @RequestParam(value = "title") String title,
