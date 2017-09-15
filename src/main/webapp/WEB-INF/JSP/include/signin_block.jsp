@@ -26,11 +26,11 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <input class="hidden" id="reCaptchaData" value="default value"/>
-                    <div class="col-xs-offset-3 col-xs-2 g-recaptcha"
-                         data-sitekey="${captchaPublic}"
-                         data-callBack="reCaptchaSubmit">
-                    </div>
+                    <%--<input class="hidden" id="reCaptchaData" value="default value"/>--%>
+                    <%--<div class="col-xs-offset-3 col-xs-2 g-recaptcha"--%>
+                         <%--data-sitekey="${captchaPublic}"--%>
+                         <%--data-callBack="reCaptchaSubmit">--%>
+                    <%--</div>--%>
                 </div>
                 <div class="form-group">
                     <div class="col-xs-offset-3 col-xs-2">

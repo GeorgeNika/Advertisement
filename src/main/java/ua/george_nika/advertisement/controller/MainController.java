@@ -95,9 +95,9 @@ public class MainController {
                              @RequestParam(value = "password") String password,
                              @RequestParam(value = "reCaptchaData") String reCaptchaData) {
 
-        if (!HandleReCaptcha.isGoodCaptcha(request, reCaptchaData, captchaPrivate)) {
-            return "captcha not valid";
-        }
+//        if (!HandleReCaptcha.isGoodCaptcha(request, reCaptchaData, captchaPrivate)) {
+//            return "captcha not valid";
+//        }
 
         Account account = new Account(login.trim(), password.trim());
 

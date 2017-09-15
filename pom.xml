@@ -137,6 +137,7 @@
             <version>${org.springframework.version}</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <profiles>
@@ -153,11 +154,11 @@
                 <finalName>Advertisement</finalName>
                 <plugins>
                     <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-war-plugin</artifactId>
-                        <version>2.1.1</version>
+                        <version>3.1.0</version>
                         <configuration>
                             <outputDirectory>webapps</outputDirectory>
-                            <warName>ROOT</warName>
                             <failOnMissingWebXml>false</failOnMissingWebXml>
                         </configuration>
                     </plugin>
